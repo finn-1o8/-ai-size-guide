@@ -1,5 +1,5 @@
 import type { HeadersFunction, LoaderFunctionArgs, ActionFunctionArgs } from "react-router";
-import { useFetcher } from "react-router";
+import { useFetcher, useLocation, Outlet } from "react-router";
 import { useEffect } from "react";
 import { boundary } from "@shopify/shopify-app-react-router/server";
 import { authenticate } from "../shopify.server";
@@ -23,6 +23,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 export default function Settings() {
   const fetcher = useFetcher<typeof action>();
   const isSaving = ["loading", "submitting"].includes(fetcher.state);
+  const location = useLocation();
 
   useEffect(() => {
     if (fetcher.data && (fetcher.data as any).ok) {
@@ -56,7 +57,7 @@ export default function Settings() {
               Create, edit and import size charts. Use the manager to add rows and measurements.
             </s-paragraph>
             <s-stack direction="inline" gap="base">
-              <s-link href="/app/settings/charts">
+              <s-link href={`/app/settings/charts${location.search || ""}`}>
                 <s-button>Open chart manager</s-button>
               </s-link>
             </s-stack>
@@ -76,6 +77,9 @@ export default function Settings() {
               Live widget preview will render here as you change styles. Coming soon.
             </s-paragraph>
           </s-section>
+
+          {/* Render nested routes like /app/settings/charts */}
+          <Outlet />
         </s-layout-section>
       </s-layout>
     </s-page>
