@@ -53,11 +53,12 @@ export default function Settings() {
 
           <s-section heading="2) Size charts">
             <s-paragraph>
-              Upload or create a chart. In the next step we’ll add CRUD and CSV import.
+              Create, edit and import size charts. Use the manager to add rows and measurements.
             </s-paragraph>
             <s-stack direction="inline" gap="base">
-              <s-button disabled>Create chart</s-button>
-              <s-button disabled variant="tertiary">Import CSV</s-button>
+              <s-link href="/app/settings/charts">
+                <s-button>Open chart manager</s-button>
+              </s-link>
             </s-stack>
           </s-section>
 
