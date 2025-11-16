@@ -30,3 +30,40 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+/// Size chart definition for a product type or group.
+model SizeChart {
+  id          String   @id @default(cuid())
+  name        String
+  unit        String   // "cm" | "in"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  rows        SizeChartRow[]
+  assignments ProductAssignment[]
+}
+
+/// Each row represents a size label with measurements.
+model SizeChartRow {
+  id          String   @id @default(cuid())
+  chartId     String
+  sizeLabel   String   // e.g., XS, S, M, 36
+  chest       Float?
+  waist       Float?
+  hips        Float?
+  sleeve      Float?
+  inseam      Float?
+
+  chart       SizeChart @relation(fields: [chartId], references: [id], onDelete: Cascade)
+}
+
+/// Mapping a chart to products/collections/tags.
+model ProductAssignment {
+  id           String   @id @default(cuid())
+  chartId      String
+  // One of the fields below will be used per assignment.
+  productId    String?  // Shopify product GID
+  collectionId String?  // Shopify collection GID
+  tag          String?  // Shopify product tag
+
+  chart       SizeChart @relation(fields: [chartId], references: [id], onDelete: Cascade)
+}
