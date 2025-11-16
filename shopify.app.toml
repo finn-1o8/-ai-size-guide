@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "a995c5546adaca4616ca68667281599d"
-name = "Sandbox"
+name = "AI Size Guide"
 application_url = "https://lance-helena-notification-design.trycloudflare.com/app"
 embedded = true
 

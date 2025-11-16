@@ -1,5 +1,5 @@
 {
-  "name": "sandbox",
+  "name": "shopify-ai-size-guide",
   "private": true,
   "scripts": {
     "build": "react-router build",

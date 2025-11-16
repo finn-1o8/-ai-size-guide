@@ -1,6 +1,11 @@
-# Shopify App Template - React Router
+# AI Size Guide – Shopify App (React Router)
 
-This is a template for building a [Shopify app](https://shopify.dev/docs/apps/getting-started) using [React Router](https://reactrouter.com/).  It was forked from the [Shopify Remix app template](https://github.com/Shopify/shopify-app-template-remix) and converted to React Router.
+This codebase powers an embedded Shopify app named “AI Size Guide”, built on [React Router](https://reactrouter.com/). It began from Shopify’s React Router template and will be extended with:
+
+- Merchant onboarding for size charts and widget styling
+- Storefront “Find your size” widget (modal/drawer/inline)
+- Basic advisor rules (AI-stub) and smart size charts
+- Product assignment tools and analytics stubs
 
 Rather than cloning this repo, follow the [Quick Start steps](https://github.com/Shopify/shopify-app-template-react-router#quick-start).
 
